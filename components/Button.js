@@ -1,4 +1,4 @@
-import styles from "./Button.module.css";
+import styles from './Button.module.css';
 
 const VARIANTS = {
   primary: styles.primary,
@@ -8,7 +8,7 @@ const VARIANTS = {
 };
 
 export default function Button({
-  className = "",
+  className = '',
   variant,
   as: AsComponent,
   ...rest

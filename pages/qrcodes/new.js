@@ -1,15 +1,17 @@
-import Head from "next/head";
-import QRCodeForm from "@/components/QRCodeForm";
-import styles from "@/styles/QRCodeCreatePage.module.css";
-import axios from "@/lib/axios";
-import { useRouter } from "next/router";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import QRCodeForm from '@/components/QRCodeForm';
+import styles from '@/styles/QRCodeCreatePage.module.css';
+import axios from '@/lib/axios';
 
 export default function QRCodeCreatePage() {
   const router = useRouter();
+
   async function handleSubmit(values) {
-    await axios.post("/qrcodes/", values);
-    router.push("/qrcodes/");
+    await axios.post('/qrcodes', values);
+    router.push('/qrcodes');
   }
+
   return (
     <>
       <Head>

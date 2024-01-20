@@ -1,16 +1,22 @@
-import dbConnect from "@/db/dbConnect";
-import ShortLink from "@/db/models/ShortLink";
+import dbConnect from '@/db/dbConnect';
+import ShortLink from '@/db/models/ShortLink';
 
 export async function getServerSideProps(context) {
   const { shortUrl } = context.query;
   await dbConnect();
-  const shortLink = await ShortLink.findOneAndDelete({ shortUrl });
+  const shortLink = await ShortLink.findOne({ shortUrl });
   if (shortLink) {
     return {
-      redirect: { destination: shortLink.url, permanent: false },
+      redirect: {
+        destination: shortLink.url,
+        permanent: false,
+      },
     };
   }
-  return { notFound: true };
+
+  return {
+    notFound: true,
+  };
 }
 
 export default function ShortUrlPage() {
