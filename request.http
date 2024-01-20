@@ -1,0 +1,13 @@
+GET http://localhost:3000/api/short-links/
+
+###
+POST http://localhost:3000/api/short-links/
+content-type: application/json
+
+{
+  "title": "codeit",
+  "url": "codit.kr"
+}
+
+###
+Delete http://localhost:3000/api/short-links/65a883b13c5f72ef37507e48
